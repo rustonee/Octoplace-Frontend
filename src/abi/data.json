@@ -1,0 +1,1316 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "writer",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "previousAdminRole",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "newAdminRole",
+        "type": "bytes32"
+      }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SwapData.SwapListing",
+        "name": "listing",
+        "type": "tuple"
+      }
+    ],
+    "name": "SwapListingAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "listingId",
+        "type": "uint256"
+      }
+    ],
+    "name": "SwapListingRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SwapData.SwapListing",
+        "name": "listing",
+        "type": "tuple"
+      }
+    ],
+    "name": "SwapListingUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "offerTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "offerTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "listingTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "listingTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDeclined",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SwapData.SwapOffer",
+        "name": "offer",
+        "type": "tuple"
+      }
+    ],
+    "name": "SwapOfferAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "SwapOfferRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "offerTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "offerTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "listingTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "listingTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDeclined",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SwapData.SwapOffer",
+        "name": "offer",
+        "type": "tuple"
+      }
+    ],
+    "name": "SwapOfferUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tradeId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct SwapData.Trade",
+        "name": "trade",
+        "type": "tuple"
+      }
+    ],
+    "name": "TradeAdded",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "DATA_MIGRATOR",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DATA_WRITER",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapListing",
+        "name": "listing",
+        "type": "tuple"
+      }
+    ],
+    "name": "addListing",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "offerTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "offerTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "listingTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "listingTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDeclined",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapOffer",
+        "name": "offer",
+        "type": "tuple"
+      }
+    ],
+    "name": "addOffer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tradeId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.Trade",
+        "name": "trade",
+        "type": "tuple"
+      }
+    ],
+    "name": "addTrade",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "grantWriterRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "hasRole",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "readAllListings",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapListing[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "readAllOffers",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "offerTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "offerTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "listingTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "listingTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDeclined",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapOffer[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "readAllTrades",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tradeId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.Trade[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "readListingById",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapListing",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "readOfferById",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "offerTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "offerTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "listingTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "listingTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDeclined",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapOffer",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "readTradeById",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tradeId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.Trade",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "removeListingById",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "removeOfferById",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "transactionToken",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapListing",
+        "name": "listing",
+        "type": "tuple"
+      }
+    ],
+    "name": "updateListing",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "offerId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "offerTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offerTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "offerTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC721",
+            "name": "listingTokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "listingTokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "listingTokenOwner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionChargeBips",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCompleted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCancelled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isDeclined",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "transactionCharge",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SwapData.SwapOffer",
+        "name": "offer",
+        "type": "tuple"
+      }
+    ],
+    "name": "updateOffer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

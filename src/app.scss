@@ -1,0 +1,421 @@
+.octagon-image {
+  width: 180px;
+  height: 180px;
+  background: #1e90ff;
+  -webkit-clip-path: polygon(
+    29% 0%,
+    71% 0%,
+    100% 29%,
+    100% 71%,
+    71% 100%,
+    29% 100%,
+    0% 71%,
+    0% 29%
+  );
+  clip-path: polygon(
+    29% 0%,
+    71% 0%,
+    100% 29%,
+    100% 71%,
+    71% 100%,
+    29% 100%,
+    0% 71%,
+    0% 29%
+  );
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: no-repeat center center;
+}
+
+.mask1 {
+  -webkit-mask-image: url("../src/assets/filter.png");
+  mask-image: url("../src/assets/filter.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 196px;
+  height: 196px;
+}
+
+.maskBack {
+  background-color: white;
+  -webkit-mask-image: url("../src/assets/filter.png");
+  mask-image: url("../src/assets/filter.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
+
+.logo-text {
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: "Poppins";
+  color: #f4f4f4;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.logo-beta-text {
+  font-family: "Indie Flower";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 2em;
+  margin-top: 1em;
+  color: #f78c09;
+}
+
+.active-listing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100% !important;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+}
+.navbar {
+  .MuiInputBase-input {
+    color: white !important;
+  }
+}
+.nav-link {
+  color: white !important;
+  margin-right: 48px;
+  font-weight: 700 !important;
+}
+.disabled {
+  color: grey !important;
+}
+.search-nav {
+  border-radius: 15% !important;
+  border: 1px solid white;
+}
+
+.carousel {
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item {
+  margin: 5px;
+  width: 220px;
+}
+
+@media screen and (max-width: 1199px) {
+  .nav-link {
+    margin-right: 16px;
+  }
+}
+
+.connect-btn {
+  border-radius: 12px !important;
+  background: #f4f4f4;
+  background-color: #f4f4f4;
+  color: #262626;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 105.02%;
+  text-transform: none !important;
+}
+
+.home-container {
+  margin-top: 84px !important;
+  .paper-menu {
+    height: 60vh;
+    border-radius: 15px;
+    background-color: #aaaaaa;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    :hover {
+      opacity: 0.6;
+    }
+    h3 {
+      font-size: 3em;
+      color: rgb(58, 58, 58);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+.navbar {
+  background-color: #262626 !important;
+}
+.navbar-brand {
+  cursor: pointer;
+}
+.footer-row {
+  margin-top: 15px !important;
+  .icon {
+    color: white !important;
+  }
+  .icon:hover {
+    color: #f4f4f4 !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .community-box1 {
+    justify-content: center !important;
+    margin-top: 30px;
+  }
+  .community-box2 {
+    justify-content: center !important;
+  }
+  .home-container {
+    .paper-menu {
+      h3 {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-container {
+    .paper-menu {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.wallet-dlg {
+  .MuiPaper-root {
+    background-color: #262626;
+    color: white;
+  }
+  .spacer {
+    flex: 1 auto;
+  }
+  .icon {
+    color: white;
+  }
+
+  .title {
+    text-transform: uppercase;
+  }
+  .wallet-menu {
+    .MuiListItemText-root {
+      text-transform: uppercase;
+      font-weight: 700 !important;
+    }
+    .wallet-logo {
+      width: 40px;
+    }
+  }
+}
+
+.gopro-dlg {
+  .MuiPaper-root {
+    background-color: #262626;
+    color: white;
+  }
+  .spacer {
+    flex: 1 auto;
+  }
+  .icon {
+    color: white;
+  }
+
+  .title {
+    text-transform: uppercase;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.nft-card-img {
+  width: 100%;
+  height: 300px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.nft-card-link {
+  text-decoration: none;
+  width: 16.6667%;
+  padding: 8px 8px 0 16px;
+  @media screen and (max-width: 1200px) {
+    width: 25%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 33.333%;
+  }
+  @media screen and (max-width: 480px) {
+    width: 50%;
+  }
+}
+
+.nft-list-dlg {
+  .MuiPaper-root {
+    background-color: #262626;
+    color: white;
+  }
+  .spacer {
+    flex: 1 auto;
+  }
+  .icon {
+    color: white;
+  }
+  .list-dlg-paper {
+    background-color: #6c6c6c;
+  }
+  .title {
+    text-transform: uppercase;
+  }
+  .wallet-menu {
+    .MuiListItemText-root {
+      text-transform: uppercase;
+      font-weight: 700 !important;
+    }
+    .wallet-logo {
+      width: 40px;
+    }
+  }
+}
+a {
+  text-decoration: none !important;
+}
+
+body > iframe {
+  pointer-events: none;
+}
+.sb {
+  .MuiOutlinedInput-input {
+    padding: 16px 20px !important;
+  }
+  .MuiOutlinedInput-notchedOutline {
+    top: -3px;
+  }
+  .MuiInputAdornment-root {
+    margin-right: 4px;
+  }
+}
+
+.strokeme {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.tx-dialog {
+  background-color: #262626;
+  color: #fff !important;
+}
+
+.MuiOutlinedInput-root {
+  color: white !important;
+}
+
+.input {
+  color: white !important;
+}
+
+.MuiInput-input {
+  color: white !important;
+  border-color: #6c6c6c !important;
+}
+
+.market-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  // .regular-btn {
+  //   font-weight: 400;
+  //   font-size: 1.5rem;
+  //   line-height: 105.02%;
+  //   color: #f4f4f4;
+  //   text-decoration: none;
+  //   padding: 1rem;
+  //   border: none !important;
+  //   outline: none !important;
+  // }
+  // .regular-btn:hover {
+  //   color: #f78c09;
+  // }
+  .regular-btn:focus {
+    outline: none !important;
+  }
+  .active-button {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 105.02%;
+    color: #f4f4f4;
+    text-decoration: underline !important;
+    text-decoration-color: #f78c09 !important;
+    text-underline-position: under !important;
+    text-underline-offset: 0.2em !important;
+    padding-bottom: 0.5rem;
+  }
+  .active-button:hover {
+    color: #f78c09;
+  }
+  .regular-btn {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 105.02%;
+    color: #f4f4f4;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0.5rem;
+  }
+
+  .regular-btn-disabled {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 105.02%;
+    color: #f4f4f4;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0.5rem;
+    cursor: default;
+  }
+
+  .regular-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-100%);
+    transition: transform 300ms ease;
+  }
+  .regular-btn:hover::after {
+    background-color: #f78c09;
+    transform: translateX(0);
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type="text"]:disabled {
+  color: #fff;
+}
+
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+}
